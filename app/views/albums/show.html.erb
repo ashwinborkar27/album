@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+
+<div class="card text-center">
+  <div class="card-header">
+    Album
+  </div>
+  <div class="card-body">
+    <h5 class="card-title bg-warning">Ablum gallary title </h5>
+    <p class="card-text">
+    <p>
+	  <strong>Name:</strong>
+	  <%= @album.name %>
+	</p>
+
+     <p>
+	  <strong>Description:</strong>
+	  <%= @album.description %>
+	 </p>
+
+	 <p>
+	  <strong>User:</strong>
+	  <%= @album.user_id %>
+	 </p>
+    </p>
+    <a >
+    	<%= link_to 'MY Album list', albums_path , class:'btn btn-mini btn-dark'%>
+    </a>
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to 'Edit', edit_album_path(@album), class:'btn btn-mini btn-success'%> |
+	<%= link_to 'Create New Photo', new_album_photo_path(@album), class:'btn btn-primary'%>|
+	
+
+  </div>
+</div>

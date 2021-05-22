@@ -1,0 +1,21 @@
+
+<%= simple_form_for [@album, @photo], url: album_photos_path do |form| %>
+  <%= form.error_notification %>
+  <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
+  <div class="form-inputs">
+    <%= form.text_field :album_id , value: params[:album_id]%> 
+    <%= form.label :picture %>
+  <%= form.file_field :pictures, multiple: true%>
+    <%#= f.association :user %>
+  </div>
+  <%= form.input :album_id, :required => false, :as => :hidden %>
+
+  <%= form.label :tag_list, "Tags (separated by commas)" %><br />
+  <%= form.text_field :tag_list %>
+
+  <div class="form-actions">
+    <%= form.button :submit, class:'btn btn-mini btn-info'%>
+  </div>
+<% end %>
+
+

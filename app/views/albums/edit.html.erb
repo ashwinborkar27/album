@@ -1,0 +1,25 @@
+<h1>Editing Album</h1>
+
+<%= render 'form', album: @album %>
+<%#= render 'photos/form'%>
+<%= link_to "Edit Album Phtos", new_album_photo_path(@album.id) %>
+
+<%= link_to 'Show', @album %> |
+<%= link_to 'Back', albums_path %>
+
+
+
+
+    <%= simple_form_for [@album, @album.photos.build] do |f| %>
+   <div class="form-inputs">
+    <%= f.text_field :album_id , value: params[:album_id]%> 
+    <%= f.label :picture %>
+  <%= f.file_field :picture%>
+    <%#= f.association :user %>
+  </div>
+  <%= f.input :album_id, :required => false, :as => :hidden %>
+
+  <div class="form-actions">
+    <%= f.button :submit, class:'btn btn-mini btn-info'%>
+  </div>
+  <% end %>

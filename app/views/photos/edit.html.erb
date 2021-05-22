@@ -1,0 +1,22 @@
+<h1>Editing Photo</h1>
+
+<%= simple_form_for [@album, @photo], url: album_photo_path do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs">
+    <%= f.text_field :album_id , value: params[:album_id]%> 
+    <%= f.label :picture %>
+  <%= f.file_field :pictures, multiple: true %>
+    <%#= f.association :user %>
+  </div>
+  <%= f.input :album_id, :required => false, :as => :hidden %>
+  
+
+  <div class="form-actions">
+    <%= f.button :submit, class:'btn btn-mini btn-info'%>
+  </div><br><br>
+<% end %>
+
+
+<%= link_to 'Show', album_photo_path, class:'btn btn-mini btn-warning'%> |
+<%= link_to 'Back', root_path, class:'btn btn-mini btn-dark' %>

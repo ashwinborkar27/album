@@ -1,0 +1,33 @@
+
+
+
+<div class="card">
+  <div class="card-header">
+     <% if user_signed_in? %>
+      <p><%= link_to 'Create Album New', new_album_path ,class:'btn btn-mini btn-primary' %></p> |
+      <%= link_to 'Album list', albums_path , class:'btn btn-mini btn-dark'%>|
+    <% else %>
+      <p><%= link_to 'Register Now', new_user_registration_path , class:'btn btn-mini btn-info'%></p>
+    <% end %>
+
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      <li><%= link_to 'Home', root_path, class:'btn btn-mini btn-info' %></li>
+
+    </h5>
+    <p class="card-text">
+               <% if user_signed_in? %>
+                <li><%= link_to "Logout (#{current_user.email})", destroy_user_session_path, :method => :delete ,class:'btn btn-mini btn-danger'%></li>
+              <% else %>
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+  
+   <li><%= link_to 'Login', new_user_session_path,  class:"btn btn-secondary" %></li>
+   <li><%= link_to 'Sign Up', new_user_registration_path,  class:"btn btn-secondary"%></li>
+    
+  <% end %>
+  
+

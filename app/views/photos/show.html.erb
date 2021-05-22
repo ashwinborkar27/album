@@ -1,0 +1,24 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @photo.album_id %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+   <% if @photo.pictures.attached? %>
+    <% @photo.pictures.each do |pic| %>
+    <%= image_tag(pic, :class => "pic") %>
+    <% end %>
+<% end %>
+</p>
+  
+ 
+<p>
+  <strong>User:</strong>
+  <%= @photo.user_id %>
+</p>
+<%= link_to 'Edit', edit_album_photo_path(@photo) ,class:'btn btn-mini btn-info' %> |
+<%= link_to 'Back', album_photos_path, class:'btn btn-mini btn-dark' %>
